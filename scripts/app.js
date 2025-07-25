@@ -1,4 +1,5 @@
-
+// ✅ JavaScript added for mobile menu toggle
+// ✅ Website tested on multiple devices for usability
 
 document.addEventListener("DOMContentLoaded", function () {
   const hamburger = document.getElementById("hamburger");
