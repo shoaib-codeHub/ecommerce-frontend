@@ -1,16 +1,13 @@
-// Add product to cart
+// Add product to cart and update localStorage
 function addToCart(item) {
-  // Get cart from localStorage or initialize empty
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-  // Validate and sanitize input
   item.quantity = parseInt(item.quantity);
   if (isNaN(item.quantity) || item.quantity <= 0) item.quantity = 1;
 
   item.size = item.size || "default";
   item.color = item.color || "default";
 
-  // Check if the same item (with size & color) already exists
   const existing = cart.find(
     p => p.id === item.id && p.size === item.size && p.color === item.color
   );
@@ -21,17 +18,11 @@ function addToCart(item) {
     cart.push(item);
   }
 
-  // Save updated cart
   localStorage.setItem("cart", JSON.stringify(cart));
-
-  // Update cart count in UI
-  updateCartCount();
-
-  // Show confirmation
-  alert("Product added to cart!");
+  updateCartCount();          // 🟢 Update after adding
 }
 
-// Update cart count in header (total quantity)
+// Update cart count in header
 function updateCartCount() {
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -44,5 +35,16 @@ function updateCartCount() {
   if (countEl) countEl.textContent = totalQuantity;
 }
 
-// Run cart count update on every page load
+// Show animation when product is added
+function showCartAnimation() {
+  const el = document.getElementById("cart-animation");
+  if (!el) return;
+
+  el.classList.add("show");
+  setTimeout(() => {
+    el.classList.remove("show");
+  }, 1500);
+}
+
+// Run update on all pages
 document.addEventListener("DOMContentLoaded", updateCartCount);

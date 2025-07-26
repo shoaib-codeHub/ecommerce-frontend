@@ -3,7 +3,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const productId = params.get("id");
 
   if (!productId) {
-    document.getElementById("product-detail").innerHTML = console.log("Product ID from URL:", productId);
+    document.getElementById("product-detail").innerHTML = "<p>Invalid product ID.</p>";
+    return;
   }
 
   fetch(`https://fakestoreapi.com/products/${productId}`)
@@ -59,10 +60,9 @@ function displayProduct(product) {
     </div>
   `;
 
-  // Elements
   const quantityInput = document.getElementById("quantity");
-  const unitPrice = price;
   const totalPriceEl = document.getElementById("total-price");
+  const unitPrice = price;
 
   // Zoom effect
   const mainImg = document.getElementById("main-img");
@@ -100,6 +100,8 @@ function displayProduct(product) {
       size: document.getElementById("size").value,
       color: document.getElementById("color").value
     };
-    addToCart(cartItem); // from cart.js
+
+    addToCart(cartItem);        // from cart.js
+    showCartAnimation();        // from cart.js
   });
 }

@@ -428,3 +428,44 @@ product-grid
   font-weight: bold;
   color: green;
 }
+
+.cart-flyout {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  background-color: #28a745;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  opacity: 0;
+  z-index: 9999;
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+.cart-flyout.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+#cart-animation {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#cart-animation.show {
+  opacity: 1;
+  transform: scale(1);
+}
+#cart-animation {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#cart-animation.show {
+  opacity: 1;
+  transform: scale(1);
+}
