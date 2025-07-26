@@ -26,14 +26,15 @@ function displayProducts(products) {
   products.forEach(product => {
     const card = document.createElement("div");
     card.classList.add("product-card");
-
-    card.innerHTML = `
-      <img src="${product.image}" alt="${product.title}" loading="lazy">
-      <div class="product-info">
-        <h3>${product.title}</h3>
-        <p>$${product.price.toFixed(2)}</p>
-        <button class="add-to-cart">Add to Cart</button>
-      </div>
+  card.innerHTML = `
+      <a href="product.html?id=${product.id}" class="product-link">
+        <img src="${product.image}" alt="${product.title}" loading="lazy">
+        <div class="product-info">
+          <h3>${product.title}</h3>
+          <p>$${product.price.toFixed(2)}</p>
+          <button class="add-to-cart">View Details</button>
+        </div>
+      </a>
     `;
 
     container.appendChild(card);

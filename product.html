@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Details</title>
+    <link rel="stylesheet" href="styles/main.css" />
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="logo">ShopEase</div>
+
+        <nav class="nav-menu" id="navMenu">
+            <a href="index.html">Home</a>
+            <a href="index.html">Products</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+
+        <div class="header-right">
+            <div class="search-box">
+                <input type="text" placeholder="Search products..." />
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+
+
+    </header>
+    <h1>Product Detail</h1>
+    <a href="index.html">← Back to Products</a>
+
+    <main class="product-detail-container">
+        <div id="product-detail">
+            <p>Loading product details...</p>
+        </div>
+    </main>
+
+    <script src="scripts/product.js"></script>
+    <script src="scripts/cart.js"></script>
+
+</body>
+
+</html>

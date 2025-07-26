@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,6 +8,7 @@
   <link rel="stylesheet" href="styles/main.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
+
 <body>
   <header class="main-header">
     <div class="logo">ShopEase</div>
@@ -23,9 +25,8 @@
         <input type="text" placeholder="Search products..." />
         <button><i class="fas fa-search"></i></button>
       </div>
-      <div class="cart-icon">
-        <i class="fas fa-shopping-cart"></i>
-        <span class="cart-count">2</span>
+      <div id="cart-indicator">
+        🛒 Cart: <span id="cart-count">0</span>
       </div>
       <div class="hamburger" id="hamburger">
         <i class="fas fa-bars"></i>
@@ -34,22 +35,30 @@
   </header>
 
   <section class="hero">
-  <div class="hero-overlay">
-    <div class="hero-content">
-      <h1>Biggest Sale of the Year!</h1>
-      <p>Up to 70% off on selected items. Limited time only.</p>
-      <a href="#" class="cta-btn">Shop Now</a>
+    <div class="hero-overlay">
+      <div class="hero-content">
+        <h1>Biggest Sale of the Year!</h1>
+        <p>Up to 70% off on selected items. Limited time only.</p>
+        <a href="#" class="cta-btn">Shop Now</a>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
+  <!-- product-grid start here -->
   <section class="product-grid">
     <div id="products-container">
       <!-- Products will load here dynamically -->
     </div>
   </section>
 
+  <main class="product-detail-container">
+    <div id="product-detail">
+      <!-- Product details will be dynamically injected here -->
+    </div>
+  </main>
 
   <script src="scripts/app.js"></script>
+  <script src="scripts/cart.js"></script>
 </body>
+
 </html>
