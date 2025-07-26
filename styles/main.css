@@ -65,11 +65,39 @@ body {
   cursor: pointer;
 }
 
-.cart-icon {
+
+#cart-indicator {
   position: relative;
-  font-size: 1.2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 1.6rem;
   color: #333;
+  transition: color 0.2s, transform 0.2s;
   cursor: pointer;
+  padding: 0.3rem;
+}
+
+#cart-indicator:hover {
+  color: #007BFF;
+  transform: scale(1.1);
+}
+
+/* Badge for item count */
+#cart-count {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  background-color: #dc3545;
+  color: #fff;
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 50%;
+  font-weight: bold;
+  line-height: 1;
 }
 
 .cart-count {
