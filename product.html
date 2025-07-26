@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Product Details</title>
     <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
 </head>
 
 <body>
@@ -24,9 +26,8 @@
                 <input type="text" placeholder="Search products..." />
                 <button><i class="fas fa-search"></i></button>
             </div>
-            <div class="cart-icon">
-                <i class="fas fa-shopping-cart"></i>
-                <span class="cart-count">0</span>
+            <div id="cart-indicator">
+                🛒 Cart: <span id="cart-count">0</span>
             </div>
             <div class="hamburger" id="hamburger">
                 <i class="fas fa-bars"></i>
@@ -36,14 +37,14 @@
 
     </header>
     <h1>Product Detail</h1>
-    <a href="index.html">← Back to Products</a>
+    <a href="index.html" id="back-to-product">← Back to Products</a>
 
     <main class="product-detail-container">
         <div id="product-detail">
             <p>Loading product details...</p>
         </div>
     </main>
-
+    <script src="scripts/app.js"></script>
     <script src="scripts/product.js"></script>
     <script src="scripts/cart.js"></script>
 

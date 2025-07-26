@@ -28,18 +28,36 @@ function displayProduct(product) {
         <h2>${product.title}</h2>
         <p class="price">$${product.price.toFixed(2)}</p>
         <p class="desc">${product.description}</p>
-       <button class="add-to-cart" onclick="addToCartFromCard(this)">Add to Cart</button>
+       <button class="add-to-cart" onclick='addToCart(${JSON.stringify(product)})'>Add to Cart</button>
       </div>
     </div>
   `;
 }
-function addToCartFromCard(button) {
-  const card = button.closest('.product-card');
-  const product = {
-    id: card.dataset.id,
-    name: card.querySelector('h3').textContent,
-    price: card.querySelector('p').textContent,
-    image: card.querySelector('img').src
-  };
-  addToCart(product); // from cart.js
+function displayProduct(product) {
+  const container = document.getElementById("product-detail");
+
+  container.innerHTML = `
+    <div class="product-wrapper">
+      <div class="image-section">
+        <img src="${product.image}" alt="${product.title}" id="main-img"/>
+      </div>
+      <div class="info-section">
+        <h2>${product.title}</h2>
+        <p class="price">$${product.price.toFixed(2)}</p>
+        <p class="desc">${product.description}</p>
+        <button class="add-to-cart" id="add-to-cart-btn">Add to Cart</button>
+      </div>
+    </div>
+  `;
+
+  // Now bind the product to the button
+  document.getElementById("add-to-cart-btn").addEventListener("click", () => {
+    const productData = {
+      id: product.id,
+      name: product.title,
+      price: product.price,
+      image: product.image
+    };
+    addToCart(productData); // from cart.js
+  });
 }
