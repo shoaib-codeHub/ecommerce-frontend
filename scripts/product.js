@@ -3,8 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const productId = params.get("id");
 
   if (!productId) {
-    document.getElementById("product-detail").innerHTML = "<p>Product ID not found.</p>";
-    return;
+    document.getElementById("product-detail").innerHTML = console.log("Product ID from URL:", productId);
   }
 
   fetch(`https://fakestoreapi.com/products/${productId}`)
@@ -12,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(product => displayProduct(product))
     .catch(err => {
       document.getElementById("product-detail").innerHTML = "<p>Failed to load product.</p>";
-      console.error("Error:", err);
+      console.error("Fetch Error:", err);
     });
 });
 
