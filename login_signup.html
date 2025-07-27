@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login & Signup</title>
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/main.css" />
     <link rel="stylesheet" href="styles/auth.css" />
     <link rel="stylesheet" href="styles/cart.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -40,11 +40,12 @@
 
     <main class="auth-main">
         <div class="auth-container">
-            <div class="form-toggle">
-                <button id="switch-to-login">Login</button>
-                <button id="switch-to-signup">Sign Up</button>
+            <div class="form-toggle-text">
+                <span id="formToggleText">Already have an account?</span>
+                <a href="#" id="formToggleLink">Login</a>
             </div>
 
+            <!-- Login Form -->
             <!-- Login Form -->
             <form id="login-form" class="auth-form active">
                 <h2>Login</h2>
@@ -58,7 +59,9 @@
                     <span class="toggle-password">👁️</span>
                 </div>
 
+                <!-- Forgot Password link is here -->
                 <a href="#" class="forgot-password">Forgot Password?</a>
+
                 <button type="submit">Login</button>
                 <p>Don't have an account? <a href="#" id="to-signup">Sign Up</a></p>
             </form>
@@ -93,6 +96,7 @@
         </div>
     </main>
 
+    <!-- Scripts -->
     <script src="scripts/app.js"></script>
     <script src="scripts/auth.js"></script>
     <script src="scripts/cart.js"></script>

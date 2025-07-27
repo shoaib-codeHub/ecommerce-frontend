@@ -1,151 +1,157 @@
 /* auth.css */
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(to right, #ece9e6, #ffffff);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #ece9e6, #ffffff);
 }
 
 .auth-main {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: calc(100vh - 80px); /* assuming header height is ~80px */
-  padding: 2rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 80px);
+    /* assuming header height is ~80px */
+    padding: 2rem 1rem;
 }
 
 
 .auth-container {
-  background-color: #fff;
-  padding: 2rem;
-  border-radius: 15px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 400px;
-  transition: all 0.3s ease-in-out;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    transition: all 0.3s ease-in-out;
 }
 
 .auth-container h2 {
-  text-align: center;
-  margin-bottom: 1.5rem;
-  color: #333;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #333;
 }
 
 .auth-form {
-  display: none;
-  flex-direction: column;
-  animation: fadeIn 0.4s ease-in-out;
+    display: none;
+    flex-direction: column;
+    animation: fadeIn 0.4s ease-in-out;
 }
 
 .auth-form.active {
-  display: flex;
+    display: flex;
 }
 
 .auth-container input {
-  padding: 0.75rem 1rem;
-  margin: 0.5rem 0;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 1rem;
-  transition: border 0.2s ease-in-out;
+    padding: 0.75rem 1rem;
+    margin: 0.5rem 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border 0.2s ease-in-out;
 }
 
 .auth-container input:focus {
-  border-color: #007bff;
-  outline: none;
+    border-color: #007bff;
+    outline: none;
 }
 
 .auth-container button {
-  padding: 0.75rem;
-  margin-top: 1rem;
-  background-color: #007BFF;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.3s ease-in-out;
+    padding: 0.75rem;
+    margin-top: 1rem;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
 }
 
 .auth-container button:hover {
-  background-color: #0056b3;
+    background-color: #0056b3;
 }
 
-.form-toggle {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 1rem;
+.form-toggle-text {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    color: #333;
 }
 
-.form-toggle button {
-  flex: 1;
-  margin: 0 0.25rem;
-  padding: 0.5rem;
-  border: 1px solid #007BFF;
-  background-color: white;
-  color: #007BFF;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.2s;
+.form-toggle-text a {
+    color: #007BFF;
+    text-decoration: none;
+    margin-left: 0.4rem;
+    font-weight: 500;
+    transition: color 0.2s ease-in-out;
 }
 
-.form-toggle button:hover {
-  background-color: #007BFF;
-  color: white;
+.form-toggle-text a:hover {
+    text-decoration: underline;
 }
+
 
 .password-wrapper {
-  position: relative;
+    position: relative;
 }
 
 .password-wrapper input[type="password"],
 .password-wrapper input[type="text"] {
-  width: 100%;
+    width: 100%;
 }
 
 .password-wrapper .toggle-password {
-  position: absolute;
-  right: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-  cursor: pointer;
-  font-size: 0.9rem;
-  color: #666;
-  user-select: none;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: #666;
+    user-select: none;
 }
 
 .forgot-password {
-  display: inline-block;
-  margin-top: 0.5rem;
-  font-size: 0.9rem;
-  color: #007BFF;
-  text-decoration: none;
-  transition: text-decoration 0.2s;
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #007BFF;
+    text-decoration: none;
+    transition: text-decoration 0.2s;
 }
 
 .forgot-password:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 .error-message {
-  color: red;
-  margin-top: 0.5rem;
-  font-size: 0.85rem;
-  display: none;
+    color: red;
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    display: none;
 }
 
 @media (max-width: 480px) {
-  .auth-container {
-    padding: 1.5rem;
-    border-radius: 10px;
-  }
-  .auth-container h2 {
-    font-size: 1.2rem;
-  }
+    .auth-container {
+        padding: 1.5rem;
+        border-radius: 10px;
+    }
+
+    .auth-container h2 {
+        font-size: 1.2rem;
+    }
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
