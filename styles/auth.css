@@ -11,7 +11,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: calc(100vh - 80px); /* Adjust if header height changes */
+    min-height: calc(100vh - 80px);
     padding: 2rem 1rem;
 }
 
@@ -48,6 +48,7 @@ body {
     border-radius: 8px;
     font-size: 1rem;
     transition: border 0.2s ease-in-out;
+    width: 100%;
 }
 
 .auth-container input:focus {
@@ -65,6 +66,7 @@ body {
     font-size: 1rem;
     cursor: pointer;
     transition: background 0.3s ease-in-out;
+    width: 100%;
 }
 
 .auth-container button:hover {
@@ -90,7 +92,6 @@ body {
     text-decoration: underline;
 }
 
-/* Forgot Password */
 .forgot-password {
     margin-top: 0.5rem;
     text-align: right;
@@ -127,19 +128,112 @@ body {
     user-select: none;
 }
 
-/* Error message styling */
 .error-message {
-  color: red;
-  margin-bottom: 10px;
-  font-size: 0.9rem;
-  display: none;
+    color: red;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    display: none;
 }
 
+.toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 6px;
+    z-index: 9999;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    font-size: 0.9rem;
+    max-width: 80vw;
+    word-wrap: break-word;
+}
 
-@media (max-width: 480px) {
+@keyframes fadein {
+    from { bottom: 0; opacity: 0; }
+    to { bottom: 20px; opacity: 1; }
+}
+
+@keyframes fadeout {
+    from { bottom: 20px; opacity: 1; }
+    to { bottom: 0; opacity: 0; }
+}
+
+.nav-menu.active {
+    display: block;
+}
+
+.logout-btn {
+    margin-left: 15px;
+    background: #d9534f;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
     .auth-container {
         padding: 1.5rem;
         border-radius: 10px;
+    }
+
+    .auth-container h2 {
+        font-size: 1.4rem;
+    }
+
+    .form-toggle-text {
+        font-size: 0.9rem;
+    }
+
+    .auth-container button {
+        font-size: 0.95rem;
+    }
+
+    .toast {
+        font-size: 0.85rem;
+        padding: 8px 16px;
+    }
+
+    .main-header {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .logo {
+        flex: 1;
+    }
+
+    .searchbar {
+        flex: 2;
+        margin: 10px 0;
+    }
+
+    .hamburger {
+        flex: 0;
+    }
+
+    .user-info-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .logout-btn {
+        margin: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .auth-container {
+        padding: 1rem;
     }
 
     .auth-container h2 {
@@ -151,18 +245,36 @@ body {
     }
 
     .auth-container button {
-        font-size: 0.95rem;
-    }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
+        font-size: 0.9rem;
     }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    .toast {
+        right: 10px;
+        bottom: 10px;
+        font-size: 0.8rem;
+    }
+
+    .main-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .nav-menu,
+    .user-info-container {
+        width: 100%;
+        text-align: center;
+    }
+
+    .user-info-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 8px;
+    }
+
+    .logout-btn {
+        margin: 0;
     }
 }

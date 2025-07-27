@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Product Details</title>
     <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="styles/auth.css" />
+    <link rel="stylesheet" href="styles/cart.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-
 </head>
 
 <body>
@@ -17,7 +18,7 @@
         <nav class="nav-menu" id="navMenu">
             <a href="index.html">Home</a>
             <a href="index.html">Products</a>
-            <a href="login_signup.html">signup & login</a>
+            <a href="login_signup.html">Login & Signup</a>
             <a href="#">About</a>
             <a href="#">Contact</a>
         </nav>
@@ -28,15 +29,18 @@
                 <button><i class="fas fa-search"></i></button>
             </div>
             <div id="cart-indicator">
-              <a href="cartpage.html"> <span id="cart-indicator">Cart <span id="cart-count">0</span></span></a>
+                <a href="cartpage.html"> <span id="cart-indicator">Cart <span id="cart-count">0</span></span></a>
             </div>
             <div class="hamburger" id="hamburger">
                 <i class="fas fa-bars"></i>
             </div>
+            <div class="user-info">
+                <span class="username" id="username-display">👤 Guest</span>
+                <button id="logout-btn" class="logout-btn" style="display: none;">Logout</button>
+            </div>
         </div>
-
-
     </header>
+
     <h1>Product Detail</h1>
     <a href="index.html" id="back-to-product">← Back to Products</a>
 
@@ -45,14 +49,14 @@
         <div id="product-detail">
             <p>Loading product details...</p>
         </div>
-
-        
     </main>
 
     <script src="scripts/app.js"></script>
-    <script src="scripts/product.js"></script>
+    <script type="module" src="scripts/firebase-init.js"></script>
+    <script type="module" src="scripts/auth.js"></script>
     <script src="scripts/cart.js"></script>
-
+    <script src="scripts/cartpage.js"></script>
+    <script src="scripts/product.js"></script>
 </body>
 
 </html>

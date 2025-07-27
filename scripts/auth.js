@@ -1,3 +1,13 @@
+// File: scripts/auth.js
+import { auth } from './firebase-init.js';
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged,
+  updateProfile
+} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+
 document.addEventListener("DOMContentLoaded", () => {
     const togglePasswordIcons = document.querySelectorAll(".toggle-password");
 
@@ -16,8 +26,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const formToggleLink = document.getElementById("formToggleLink");
     const toLoginLink = document.getElementById("to-login");
     const toSignupLink = document.getElementById("to-signup");
+    const userDisplay = document.createElement("div");
+    const navMenu = document.querySelector(".nav-menu");
 
-    // Show login form by default
     loginForm.classList.add("active");
 
     function updateToggleText() {
@@ -60,8 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     updateToggleText();
 
-    // LOGIN FORM SUBMIT
-    loginForm?.addEventListener("submit", function (e) {
+    loginForm?.addEventListener("submit", async function (e) {
         e.preventDefault();
 
         const email = loginForm.querySelector("#login-email").value.trim();
@@ -78,11 +88,16 @@ document.addEventListener("DOMContentLoaded", () => {
             return showError("Please enter your password.", errorBox);
         }
 
-        alert("Login successful!");
+        try {
+            await signInWithEmailAndPassword(auth, email, password);
+            showToast("Login successful!");
+            window.location.href = "index.html";
+        } catch (error) {
+            showError(error.message, errorBox);
+        }
     });
 
-    // SIGNUP FORM SUBMIT
-    signupForm?.addEventListener("submit", function (e) {
+    signupForm?.addEventListener("submit", async function (e) {
         e.preventDefault();
 
         const name = signupForm.querySelector("#signup-name").value.trim();
@@ -109,10 +124,56 @@ document.addEventListener("DOMContentLoaded", () => {
             return showError("Passwords do not match.", errorBox);
         }
 
-        alert("Signup successful!");
+        try {
+            const result = await createUserWithEmailAndPassword(auth, email, password);
+            await updateProfile(result.user, { displayName: name });
+            showToast("Signup successful!");
+            window.location.href = "index.html";
+        } catch (error) {
+            showError(error.message, errorBox);
+        }
     });
 
-    // VALIDATION FUNCTIONS
+    function addUserDisplayAndLogout(user) {
+        if (!document.getElementById("user-info")) {
+            const userDiv = document.createElement("div");
+            userDiv.id = "user-info";
+            userDiv.innerHTML = `<span class="user-name">👤 ${user.displayName || user.email}</span> <button id="logoutBtn">Logout 🔓</button>`;
+            userDiv.style.display = "flex";
+            userDiv.style.alignItems = "center";
+            userDiv.style.gap = "10px";
+            navMenu.parentElement.appendChild(userDiv);
+
+            document.getElementById("logoutBtn").addEventListener("click", async () => {
+                await signOut(auth);
+                showToast("Logged out successfully!");
+                window.location.href = "login_signup.html";
+            });
+        }
+    }
+
+    function showToast(message) {
+        const toast = document.createElement("div");
+        toast.textContent = message;
+        toast.className = "toast";
+        document.body.appendChild(toast);
+        setTimeout(() => toast.classList.add("show"), 100);
+        setTimeout(() => {
+            toast.classList.remove("show");
+            toast.addEventListener("transitionend", () => toast.remove());
+        }, 3000);
+    }
+
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            addUserDisplayAndLogout(user);
+        } else {
+            if (window.location.pathname.includes("cartpage") || window.location.pathname.includes("checkout")) {
+                window.location.href = "login_signup.html";
+            }
+        }
+    });
+
     function validateEmail(email) {
         const re = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,}$/;
         return re.test(email);
@@ -122,7 +183,6 @@ document.addEventListener("DOMContentLoaded", () => {
         return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/.test(password);
     }
 
-    // ERROR HANDLING
     function showError(message, container) {
         if (container) {
             container.textContent = message;

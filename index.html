@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>E-Commerce Site</title>
   <link rel="stylesheet" href="styles/main.css" />
+  <link rel="stylesheet" href="styles/auth.css" />
+  <link rel="stylesheet" href="styles/cart.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 
@@ -16,7 +18,7 @@
     <nav class="nav-menu" id="navMenu">
       <a href="index.html">Home</a>
       <a href="index.html">Products</a>
-      <a href="login_signup.html">signup & login</a>
+      <a href="login_signup.html" id="auth-link">Login & Signup</a>
       <a href="#">About</a>
       <a href="#">Contact</a>
     </nav>
@@ -26,9 +28,11 @@
         <input type="text" placeholder="Search products..." />
         <button><i class="fas fa-search"></i></button>
       </div>
-      <div id="cart-indicator">
-         <a href="cartpage.html"> <span id="cart-indicator">Cart <span id="cart-count">0</span></span></a>
+      <div>
+        <a href="cartpage.html" id="cart-link">Cart <span id="cart-count">0</span></a>
       </div>
+      <span id="username-display" style="margin: 0 10px;"></span>
+      <button id="logout-btn" style="display: none;">Logout</button>
       <div class="hamburger" id="hamburger">
         <i class="fas fa-bars"></i>
       </div>
@@ -52,15 +56,15 @@
     </div>
   </section>
 
-  <main class="product-detail-container">
-    <div id="product-detail">
-      <!-- Product details will be dynamically injected here -->
-    </div>
-  </main>
+  <!-- Toast Notification Container -->
+  <div id="toast-container"></div>
 
+  <script type="module" src="scripts/firebase-init.js"></script>
+  <script type="module" src="scripts/auth.js"></script>
   <script src="scripts/app.js"></script>
-  <script src="scripts/product.js"></script>
   <script src="scripts/cart.js"></script>
+  <script src="scripts/cartpage.js"></script>
+  <script src="scripts/product.js"></script>
 </body>
 
 </html>
