@@ -33,6 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function toggleForm() {
         loginForm.classList.toggle("active");
         signupForm.classList.toggle("active");
+        clearAllErrors();
         updateToggleText();
     }
 
@@ -45,6 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault();
         loginForm.classList.remove("active");
         signupForm.classList.add("active");
+        clearAllErrors();
         updateToggleText();
     });
 
@@ -52,29 +54,34 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault();
         signupForm.classList.remove("active");
         loginForm.classList.add("active");
+        clearAllErrors();
         updateToggleText();
     });
 
     updateToggleText();
 
+    // LOGIN FORM SUBMIT
     loginForm?.addEventListener("submit", function (e) {
         e.preventDefault();
+
         const email = loginForm.querySelector("#login-email").value.trim();
         const password = loginForm.querySelector("#login-password").value;
+        const errorBox = loginForm.querySelector("#login-error");
+
+        clearError(errorBox);
 
         if (!validateEmail(email)) {
-            alert("Please enter a valid email.");
-            return;
+            return showError("Please enter a valid email.", errorBox);
         }
 
         if (!password) {
-            alert("Please enter your password.");
-            return;
+            return showError("Please enter your password.", errorBox);
         }
 
         alert("Login successful!");
     });
 
+    // SIGNUP FORM SUBMIT
     signupForm?.addEventListener("submit", function (e) {
         e.preventDefault();
 
@@ -82,7 +89,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const email = signupForm.querySelector("#signup-email").value.trim();
         const password = signupForm.querySelector("#signup-password").value;
         const confirmPassword = signupForm.querySelector("#signup-confirm-password").value;
-        const errorBox = signupForm.querySelector(".error-message");
+        const errorBox = signupForm.querySelector("#signup-error");
+
+        clearError(errorBox);
 
         if (!name) {
             return showError("Please enter your name.", errorBox);
@@ -100,10 +109,10 @@ document.addEventListener("DOMContentLoaded", () => {
             return showError("Passwords do not match.", errorBox);
         }
 
-        errorBox.textContent = "";
         alert("Signup successful!");
     });
 
+    // VALIDATION FUNCTIONS
     function validateEmail(email) {
         const re = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,}$/;
         return re.test(email);
@@ -113,7 +122,23 @@ document.addEventListener("DOMContentLoaded", () => {
         return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/.test(password);
     }
 
+    // ERROR HANDLING
     function showError(message, container) {
-        if (container) container.textContent = message;
+        if (container) {
+            container.textContent = message;
+            container.style.display = "block";
+        }
+    }
+
+    function clearError(container) {
+        if (container) {
+            container.textContent = "";
+            container.style.display = "none";
+        }
+    }
+
+    function clearAllErrors() {
+        const errorBoxes = document.querySelectorAll(".error-message");
+        errorBoxes.forEach((box) => clearError(box));
     }
 });
