@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login & Signup</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/auth.css" />
+    <link rel="stylesheet" href="styles/cart.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body>
+
+    <header class="main-header">
+        <div class="logo">ShopEase</div>
+
+        <nav class="nav-menu" id="navMenu">
+            <a href="index.html">Home</a>
+            <a href="index.html">Products</a>
+            <a href="login_signup.html">Login & Signup</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+
+        <div class="header-right">
+            <div class="search-box">
+                <input type="text" placeholder="Search products..." />
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <div id="cart-indicator">
+                <a href="cartpage.html">Cart <span id="cart-count">0</span></a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <main class="auth-main">
+        <div class="auth-container">
+            <div class="form-toggle">
+                <button id="switch-to-login">Login</button>
+                <button id="switch-to-signup">Sign Up</button>
+            </div>
+
+            <!-- Login Form -->
+            <form id="login-form" class="auth-form active">
+                <h2>Login</h2>
+
+                <label for="login-email">Email:</label>
+                <input type="email" id="login-email" required />
+
+                <label for="login-password">Password:</label>
+                <div class="password-wrapper">
+                    <input type="password" id="login-password" required />
+                    <span class="toggle-password">👁️</span>
+                </div>
+
+                <a href="#" class="forgot-password">Forgot Password?</a>
+                <button type="submit">Login</button>
+                <p>Don't have an account? <a href="#" id="to-signup">Sign Up</a></p>
+            </form>
+
+            <!-- Signup Form -->
+            <form id="signup-form" class="auth-form">
+                <h2>Sign Up</h2>
+
+                <label for="signup-name">Full Name:</label>
+                <input type="text" id="signup-name" required />
+
+                <label for="signup-email">Email:</label>
+                <input type="email" id="signup-email" required />
+
+                <label for="signup-password">Password:</label>
+                <div class="password-wrapper">
+                    <input type="password" id="signup-password" required />
+                    <span class="toggle-password">👁️</span>
+                </div>
+
+                <label for="signup-confirm-password">Confirm Password:</label>
+                <div class="password-wrapper">
+                    <input type="password" id="signup-confirm-password" required />
+                    <span class="toggle-password">👁️</span>
+                </div>
+
+                <div class="error-message"></div>
+
+                <button type="submit">Sign Up</button>
+                <p>Already have an account? <a href="#" id="to-login">Login</a></p>
+            </form>
+        </div>
+    </main>
+
+    <script src="scripts/app.js"></script>
+    <script src="scripts/auth.js"></script>
+    <script src="scripts/cart.js"></script>
+    <script src="scripts/cartpage.js"></script>
+    <script src="scripts/product.js"></script>
+</body>
+
+</html>
