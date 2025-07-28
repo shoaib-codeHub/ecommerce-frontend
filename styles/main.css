@@ -28,9 +28,41 @@ body {
   transition: color 0.3s ease;
 }
 
+
 .navbar-nav .nav-link:hover {
   color: #007BFF !important;
 }
+/* Large screens (Bootstrap's 'lg' breakpoint is 992px) */
+@media (min-width: 992px) {
+    /* Target the collapsible content container */
+    .navbar-collapse {
+        /* Make it a flex container to control its children's alignment */
+        display: flex;
+        /* Center all direct children horizontally */
+        justify-content: right;
+        /* Ensure it takes up available space to allow centering */
+        flex-grow: 0.1;
+        margin-left: 650px;
+    }
+
+    /* Target the navigation links list */
+    .navbar-nav {
+        /* Override Bootstrap's default 'margin-right: auto' (me-auto) */
+        margin-right: 0 !important;
+        /* Use auto margins on both sides to center the ul itself within the flex container */
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    /* Target the desktop search and cart container */
+    .desktop-search-cart {
+        /* Override Bootstrap's 'margin-left: auto' (ms-auto) if necessary,
+           and ensure it's pushed to the far right */
+        margin-left: auto !important;
+        margin-right: 0 !important; /* Ensure no extra margin on the right */
+    }
+}
+
 
 /* TOGGLER */
 .navbar-toggler {

@@ -138,7 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!document.getElementById("user-info")) {
             const userDiv = document.createElement("div");
             userDiv.id = "user-info";
-            userDiv.innerHTML = `<span class="user-name">👤 ${user.displayName || user.email}</span> <button id="logoutBtn">Logout 🔓</button>`;
+userDiv.innerHTML = `<span class="user-name">👤 ${user.displayName || user.email}</span> <button id="logoutBtn" style="padding: 6px 12px; background-color: #dc3545; color: white; border: none; border-radius: 4px; font-size: 14px; cursor: pointer;">Logout 🔓</button>`;
             userDiv.style.display = "flex";
             userDiv.style.alignItems = "center";
             userDiv.style.gap = "10px";
