@@ -129,6 +129,9 @@ body {
   border-radius: 50%;
   font-weight: bold;
 }
+#cart-indicator {
+  margin-right: 10px;
+}
 
 /* Toasts */
 #toast-container {
