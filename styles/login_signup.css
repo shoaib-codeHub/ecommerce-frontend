@@ -1,297 +1,248 @@
 /* Reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Inter', sans-serif; /* Changed font to Inter for a modern look */
-    background: #f0f2f5; /* Lighter, more modern background color */
+  font-family: 'Segoe UI', sans-serif;
+  background: #f9f9f9;
 }
 
 /* Header */
 .main-header {
-    background-color: #ffffff; /* Pure white background for header */
-    border-bottom: 1px solid #e0e0e0; /* Softer border */
-    padding: 16px 25px; /* Increased horizontal padding */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* More pronounced shadow */
-    display: flex;
-    flex-direction: column; /* Default to column layout for header sections */
-    position: sticky; /* Make header sticky */
-    top: 0;
-    z-index: 1000; /* Ensure header stays on top */
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  padding: 16px 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
-/* Top row - Logo and Hamburger */
+/* Flex container for top row */
 .header-top {
-    display: flex;
-    justify-content: space-between; /* Pushes logo to left, hamburger to right */
-    align-items: center;
-    width: 100%; /* Ensure it spans full width */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 /* Logo */
 .logo {
-    font-size: 2rem; /* Slightly larger logo */
-    font-weight: 700; /* Bolder font weight */
-    color: #2c3e50; /* Darker, more sophisticated primary color */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05); /* Subtle text shadow */
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #007bff;
 }
 
-/* Hamburger - Always visible and on the right */
+/* Hamburger */
 .hamburger {
-    font-size: 2rem; /* Larger hamburger icon */
-    color: #34495e; /* Darker color for hamburger */
-    cursor: pointer;
-    display: block; /* Always display the hamburger */
-    transition: transform 0.3s ease; /* Smooth rotation on click */
+  font-size: 1.8rem;
+  color: #333;
+  cursor: pointer;
+  display: none;
 }
 
-.hamburger.active {
-    transform: rotate(90deg);
-}
-
-/* Collapsible Menu Container - Contains nav links and header right section */
+/* Navigation menu container */
 .menu-collapse {
-    display: flex; /* Default to flex for desktop */
-    flex-direction: row; /* Layout nav and header-right in a row on desktop */
-    justify-content: space-between; /* Space between nav and header-right */
-    align-items: center; /* Align items vertically */
-    gap: 20px; /* Gap between nav and header-right */
-    margin-top: 15px; /* Margin from the header-top */
-    width: 100%; /* Ensure it spans full width */
-    transition: all 0.3s ease-in-out; /* Smooth transition for collapse */
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 16px;
+  width: 100%;
 }
 
-/* Navigation Links - Bootstrap-like navbar */
+/* Navigation links */
 .nav-menu {
-    display: flex;
-    flex-wrap: wrap; /* Allows links to wrap into multiple rows */
-    gap: 20px; /* Increased gap between nav items */
-    justify-content: flex-start; /* Align links to the start */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: flex-start;
 }
 
 .nav-menu a {
-    text-decoration: none;
-    color: #555; /* Softer link color */
-    padding: 8px 15px; /* More padding for links */
-    border-radius: 8px; /* More rounded corners */
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease; /* Added transform transition */
-    font-weight: 500; /* Medium font weight */
+  text-decoration: none;
+  color: #333;
+  padding: 6px 10px;
+  border-radius: 4px;
+  transition: background 0.3s;
 }
 
 .nav-menu a:hover {
-    background-color: #e9f5ff; /* Lighter blue hover background */
-    color: #007bff; /* Vibrant blue on hover */
-    transform: translateY(-2px); /* Slight lift effect */
+  background-color: #f0f0f0;
+  color: #007bff;
 }
 
-/* Right Section (Cart & Search in row) */
+/* Right Section (Search + Cart) */
 .header-right {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end; /* Pushes content to the right */
-    gap: 20px; /* Increased gap */
-    flex-wrap: nowrap; /* Keep items in a single row by default */
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 12px;
 }
 
 /* Cart Container */
 #cart-indicator {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 48px; /* Slightly larger cart icon */
-    height: 48px;
-    background-color: #f0f2f5; /* Light background for cart */
-    border-radius: 50%;
-    position: relative;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    flex-shrink: 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for cart icon */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  background-color: #f5f5f5;
+  border-radius: 50%;
+  position: relative;
+  transition: background-color 0.3s ease;
 }
 
 #cart-indicator:hover {
-    background-color: #e0e0e0;
-    transform: scale(1.05); /* Slight scale effect on hover */
+  background-color: #e0e0e0;
 }
 
 #cart-indicator a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    text-decoration: none;
-    color: #34495e; /* Darker icon color */
-    font-size: 1.6rem; /* Larger cart icon */
-    position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: #333;
+  font-size: 1.5rem;
 }
 
 #cart-indicator i {
-    font-size: 1.6rem;
-    color: #34495e;
+  font-size: 1.5rem;
 }
 
-/* Cart Count Badge */
+/* Cart Count */
 #cart-count {
-    position: absolute;
-    top: -8px; /* Adjusted position */
-    right: -8px; /* Adjusted position */
-    background-color: #e74c3c; /* More vibrant red */
-    color: white;
-    font-size: 12px; /* Slightly larger font */
-    padding: 3px 7px; /* More padding */
-    border-radius: 50%;
-    font-weight: bold;
-    min-width: 20px; /* Slightly larger min-width */
-    text-align: center;
-    line-height: 1;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25); /* More prominent shadow */
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background-color: red;
+  color: white;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 50%;
+  font-weight: bold;
+  min-width: 18px;
+  text-align: center;
+  line-height: 1;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
 }
 
 /* Search Box */
 .search-box {
-    display: flex;
-    border: 1px solid #dcdcdc; /* Lighter border */
-    border-radius: 25px; /* More rounded search box */
-    overflow: hidden;
-    height: 40px; /* Taller search box */
-    width: 300px; /* Wider search box */
-    flex-shrink: 0;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); /* Subtle shadow */
-    transition: box-shadow 0.3s ease;
-}
-
-.search-box:focus-within {
-    box-shadow: 0 2px 10px rgba(0, 123, 255, 0.2); /* Blue shadow on focus */
-    border-color: #007bff; /* Blue border on focus */
+  display: flex;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 36px;
+  flex-grow: 1;
+  max-width: 350px;
 }
 
 .search-box input {
-    border: none;
-    padding: 0 15px; /* More padding */
-    outline: none;
-    width: 100%;
-    font-size: 15px; /* Slightly larger font */
-    color: #333;
+  border: none;
+  padding: 0 12px;
+  outline: none;
+  width: 100%;
+  font-size: 14px;
 }
 
 .search-box button {
-    background: #007bff; /* Vibrant blue button */
-    color: white;
-    border: none;
-    padding: 0 18px; /* More padding */
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 0 14px;
+  cursor: pointer;
 }
 
-.search-box button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
-}
-
-/* User info */
+/* Username & Logout (if needed) */
 #username-display {
-    font-weight: 600; /* Bolder font weight */
-    color: #34495e; /* Darker text color */
+  font-weight: 500;
+  color: #333;
 }
 
 #logout-btn {
-    padding: 8px 16px; /* More padding */
-    background-color: #e74c3c; /* Vibrant red logout button */
-    color: white;
-    border: none;
-    border-radius: 6px; /* More rounded corners */
-    font-size: 15px; /* Slightly larger font */
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  padding: 6px 12px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
 }
 
-#logout-btn:hover {
-    background-color: #c0392b; /* Darker red on hover */
-}
-
-/* Responsive */
+/* ========== Responsive ========== */
 @media (max-width: 768px) {
-    /* On mobile, the menu-collapse should be hidden by default */
-    .menu-collapse {
-        display: none;
-        flex-direction: column; /* Stack items vertically when active */
-        gap: 15px; /* Adjusted gap for mobile */
-        margin-top: 15px;
-        padding-bottom: 10px;
-        align-items: flex-start; /* Align content to the start */
-    }
+  .hamburger {
+    display: block;
+  }
 
-    .menu-collapse.active {
-        display: flex; /* Show when active */
-    }
+  .menu-collapse {
+    display: none;
+    flex-direction: column;
+  }
 
-    .nav-menu {
-        flex-direction: column; /* Stack nav links vertically */
-        align-items: flex-start;
-        gap: 10px; /* Adjusted gap for mobile nav */
-    }
+  .menu-collapse.active {
+    display: flex;
+  }
 
-    .header-right {
-        flex-direction: row; /* Keep cart and search in a row */
-        justify-content: space-between;
-        align-items: center;
-        gap: 15px; /* Adjusted gap for mobile */
-        flex-wrap: wrap; /* Allow wrapping if needed */
-        width: 100%; /* Ensure it takes full width */
-        margin-top: 15px; /* Ensure consistent margin */
-    }
+  .nav-menu {
+    flex-direction: column;
+    gap: 8px;
+  }
 
-    .search-box {
-        width: calc(100% - 65px); /* Adjusted width for cart icon and gap */
-        max-width: 100%;
-        height: 38px; /* Slightly smaller height on mobile */
-    }
+  .header-right {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
 
-    #cart-indicator {
-        margin: 0;
-        width: 44px; /* Slightly smaller on mobile */
-        height: 44px;
-    }
+  .search-box {
+    width: 100%;
+    max-width: 100%;
+  }
 
-    .logo {
-        font-size: 1.6rem; /* Smaller logo on mobile */
-    }
+  #cart-indicator {
+    margin: 0 auto;
+  }
 }
 
-@media (max-width: 480px) {
-    .main-header {
-        padding: 12px 15px; /* Smaller padding on very small screens */
-    }
+/* ========== Desktop Layout (min-width: 769px) ========== */
+@media (min-width: 769px) {
+  .main-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 
-    .logo {
-        font-size: 1.5rem;
-    }
+  .hamburger {
+    display: none !important;
+  }
 
-    .hamburger {
-        font-size: 1.8rem;
-    }
+  .menu-collapse {
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0;
+    flex: 1;
+  }
 
-    .header-right {
-        flex-direction: column; /* Stack cart and search vertically on very small screens */
-        align-items: stretch; /* Stretch items to full width */
-        gap: 10px;
-    }
+  .nav-menu {
+    flex-direction: row;
+    gap: 20px;
+  }
 
-    .search-box {
-        width: 100%; /* Full width search box */
-        height: 36px;
-    }
+  .header-right {
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    margin-top: 0;
+    flex-shrink: 0;
+  }
 
-    #cart-indicator {
-        width: 40px; /* Even smaller cart icon */
-        height: 40px;
-        margin: 0 auto; /* Center cart icon when stacked */
-    }
-
-    .nav-menu a {
-        padding: 6px 10px;
-        font-size: 0.9rem;
-    }
+  .search-box {
+    width: 300px;
+  }
 }
