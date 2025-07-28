@@ -42,8 +42,7 @@
         <li class="nav-item d-lg-none">
           <a class="nav-link position-relative" href="cartpage.html">
             <i class="fas fa-shopping-cart"></i>
-            <span id="cart-count"
-              class="position-relative top-0 translate-middle badge rounded-pill bg-danger">
+            <span id="cart-count" class="position-relative top-0 translate-middle badge rounded-pill bg-danger">
               0
             </span>
           </a>
@@ -59,27 +58,25 @@
     </div>
   </nav>
 
-    <main>
-        <h1>Your Shopping Cart</h1>
-        <div id="cart-container" class="cart-items"></div>
-        <div class="cart-summary">
-            <h2>Total: $<span id="cart-total">0.00</span></h2>
-            <button id="checkout-btn" disabled>Proceed to Checkout</button>
-            <a href="index.html" class="continue-btn">Continue Shopping</a>
-        </div>
-    </main>
+  <main>
+    <h1>Your Shopping Cart</h1>
+    <div id="cart-container" class="cart-items"></div>
+    <div class="cart-summary">
+      <h2>Total: $<span id="cart-total">0.00</span></h2>
+      <button id="checkout-btn" disabled>Proceed to Checkout</button>
+      <a href="index.html" class="continue-btn">Continue Shopping</a>
+    </div>
+  </main>
 
-   <!-- Firebase & App Scripts -->
-  <script type="module" src="scripts/firebase-init.js"></script>
-  <script type="module" src="scripts/auth.js"></script>
-  <script type="module" src="scripts/auth-redirect.js"></script>
-  <script src="scripts/app.js"></script>
-  <script src="scripts/cart.js"></script>
-  <script src="scripts/cartpage.js"></script>
-  <script src="scripts/product.js"></script>
-
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Firebase & App Scripts -->
+  <script type="module" src="scripts/firebase-init.js" defer></script>
+  <script type="module" src="scripts/auth.js" defer></script>
+  <script type="module" src="scripts/auth-redirect.js" defer></script>
+  <script src="scripts/app.js" defer></script>
+  <script src="scripts/cart.js" defer></script>
+  <script src="scripts/cartpage.js" defer></script>
+  <script src="scripts/product.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
 
 </body>
 
