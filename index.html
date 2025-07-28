@@ -23,44 +23,51 @@
 
   <!-- Navbar Header -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light px-3">
-    <a class="navbar-brand" href="#">ShopEase</a>
+  <a class="navbar-brand" href="#">ShopEase</a>
 
-    <!-- Right-aligned Hamburger -->
-    <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
-      aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  <!-- Cart Icon (ALWAYS visible on all screen sizes) -->
+  <a href="cartpage.html" class="cart-icon-wrapper d-flex d-lg-none ms-auto me-3">
+    <i class="fas fa-shopping-cart"></i>
+    <span id="cart-count" class="position-absolute top-0 translate-middle badge rounded-pill bg-danger">
+      0
+    </span>
+  </a>
 
-    <!-- Navbar Collapse -->
-    <div class="collapse navbar-collapse" id="navbarContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="index.html">Products</a></li>
-        <li class="nav-item"><a class="nav-link" href="login_signup.html" id="auth-link">Login & Signup</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+  <!-- Hamburger -->
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+    aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-        <!-- Cart inside hamburger (only visible on collapse) -->
-        <div class="d-none d-lg-block position-relative me-3">
-          <a class="nav-link position-relative" href="cartpage.html">
-            <i class="fas fa-shopping-cart fa-lg"></i>
-            <span id="cart-count"
-              class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-              0
-            </span>
-          </a>
-        </div>
+  <!-- Collapsible Navbar -->
+  <div class="collapse navbar-collapse" id="navbarContent">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+      <li class="nav-item"><a class="nav-link" href="index.html">Products</a></li>
+      <li class="nav-item"><a class="nav-link" href="login_signup.html" id="auth-link">Login & Signup</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+    </ul>
 
-
-      </ul>
-
-      <!-- Right-side Desktop Controls -->
+    <!-- Desktop Search + Cart -->
+    <div class="desktop-search-cart d-none d-lg-flex ms-auto align-items-center">
       <form class="d-flex me-3">
         <input class="form-control me-2" type="search" placeholder="Search products..." />
         <button class="btn btn-outline-secondary" type="submit"><i class="fas fa-search"></i></button>
       </form>
+
+      <!-- Desktop Cart Icon -->
+      <a href="cartpage.html" class="cart-icon-wrapper">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cart-count" class="position-absolute top-0 translate-middle badge rounded-pill bg-danger">
+          0
+        </span>
+      </a>
     </div>
-  </nav>
+  </div>
+</nav>
+
+
 
   <!-- Hero Section -->
   <section class="hero bg-primary text-white text-center py-5">
