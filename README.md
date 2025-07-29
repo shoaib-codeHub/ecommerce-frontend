@@ -8,34 +8,30 @@ A modern, fully responsive e-commerce frontend built using **HTML**, **CSS**, an
 ## 📁 Project Structure
 
 📦 E-Commerce-Website/
-├── hero.jpg # Hero image for homepage
-├── index.html # Homepage with product grid
-├── product.html # Product detail page (dynamic content)
-├── cartpage.html # Shopping cart view
-├── login_signup.html # Login & Signup forms
+├── hero.jpg
+├── index.html
+├── product.html
+├── cartpage.html
+├── login_signup.html
 │
-├── scripts/ # JavaScript files
-│ ├── app.js # Main homepage and global logic
-│ ├── auth.js # Firebase login/signup/logout functions
-│ ├── auth-redirect.js # Redirect users based on login status
-│ ├── cart.js # Logic for cart operations (add/update/remove)
-│ ├── cartpage.js # Cart page UI logic and event handlers
-│ ├── firebase-init.js # Firebase initialization and config
-│ └── product.js # Product detail page logic
+├── scripts/
+│ ├── app.js
+│ ├── auth.js
+│ ├── auth-redirect.js
+│ ├── cart.js
+│ ├── cartpage.js
+│ ├── firebase-init.js
+│ └── product.js
 │
-├── styles/ # CSS stylesheets
-│ ├── main.css # Global styles
-│ ├── auth.css # Styles for login/signup forms
-│ ├── cart.css # Styles for cart page
-│ └── login_signup.css # Extra styling for auth UI
+├── styles/
+│ ├── main.css
+│ ├── auth.css
+│ ├── cart.css
+│ └── login_signup.css
 │
-├── .gitignore # Git ignore rules
-├── package.json # Project metadata (for tools, optional)
-└── README.md # This documentation file
-
-markdown
-Copy
-Edit
+├── .gitignore
+├── package.json
+└── README.md
 
 ---
 
