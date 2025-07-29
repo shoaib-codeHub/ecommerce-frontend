@@ -4,35 +4,32 @@
 A modern, fully responsive e-commerce frontend built using **HTML**, **CSS**, and **JavaScript** with **Firebase Authentication** and a dynamic client-side cart system. This project is perfect for learning how to build a full frontend shopping experience with real authentication and cart management using localStorage.
 
 ---
+### Key Files and Directories Explained:
 
-## 📁 Project Structure
+* **`hero.jpg`**: The eye-catching hero image featured prominently on the homepage.
+* **`index.html`**: The main landing page, showcasing the product grid and serving as the primary entry point to the website.
+* **`product.html`**: A dynamic page dedicated to displaying detailed information for individual products.
+* **`cartpage.html`**: Provides a comprehensive view of the user's shopping cart, allowing for easy management of selected items.
+* **`login_signup.html`**: Contains the user interface for both logging in and registering new accounts.
 
-📦 E-Commerce-Website/
-├── hero.jpg
-├── index.html
-├── product.html
-├── cartpage.html
-├── login_signup.html
-│
-├── scripts/
-│ ├── app.js
-│ ├── auth.js
-│ ├── auth-redirect.js
-│ ├── cart.js
-│ ├── cartpage.js
-│ ├── firebase-init.js
-│ └── product.js
-│
-├── styles/
-│ ├── main.css
-│ ├── auth.css
-│ ├── cart.css
-│ └── login_signup.css
-│
-├── .gitignore
-├── package.json
-└── README.md
+* **`scripts/`**: This directory centralizes all JavaScript files for the application:
+    * **`app.js`**: Handles the core homepage logic and global JavaScript functionalities.
+    * **`auth.js`**: Manages all Firebase authentication operations, including user login, signup, and logout.
+    * **`auth-redirect.js`**: Controls user redirection based on their authentication status, ensuring protected routes are handled correctly.
+    * **`cart.js`**: Implements the fundamental logic for all shopping cart operations (adding, removing, and updating items).
+    * **`cartpage.js`**: Specifically manages the user interface and event handlers for the shopping cart page.
+    * **`firebase-init.js`**: Initializes Firebase services and configures them for the project.
+    * **`product.js`**: Contains JavaScript logic specific to the product detail page, such as handling dynamic content loading.
 
+* **`styles/`**: This directory holds all the CSS stylesheets for the project:
+    * **`main.css`**: Defines global styles, typography, and layout settings applied across the entire website.
+    * **`auth.css`**: Provides specific styling rules for the authentication forms.
+    * **`cart.css`**: Manages the visual presentation and layout of the shopping cart page.
+    * **`login_signup.css`**: Offers additional styling nuances for the login and signup user interfaces.
+
+* **`.gitignore`**: A standard file that instructs Git which files and directories to exclude from version control.
+* **`package.json`**: Contains essential project metadata and lists development dependencies, commonly used with Node.js for project management.
+* **`README.md`**: This very document, offering a detailed overview and information about the project.
 ---
 
 ## 🚀 Features
